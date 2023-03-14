@@ -1,0 +1,11 @@
+#!/bin/bash
+
+/home/snaps.sh
+
+if [ $? -eq 0 ]; then
+	rm -rf /home/snap*
+	rm /etc/rc.local
+	nmcli n off
+	sleep 2
+	nmcli n on
+fi

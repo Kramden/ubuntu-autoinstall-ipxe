@@ -1,0 +1,70 @@
+#cloud-config
+autoinstall:
+  identity:
+    hostname: jammy-desktop
+    password: $6$5lpwCLsKLEzMkSJc$keOAhA6aO/5RocGThmhVA7LSNuW911Rx5HHXFEa75oGK20cEdAAgn14H5f5nGeq6QgcSyLPrWcg1.JvjXbhrN/
+    realname: Ubuntu user
+    username: ubuntu
+  keyboard:
+    layout: us
+    toggle: null
+    variant: ''
+  locale: en_US.UTF-8
+  refresh-installer:
+    update: true
+  proxy: "http://192.168.122.1:8000/"
+  apt:
+    preserve_sources_list: true
+    sources:
+      kramden-team:
+        source: ppa:kramden-team/kramden
+  packages:
+  - ubuntu-desktop^
+  - systemd-hwe-hwdb
+  - python3-magic
+  - kramden-overrides
+  - gimp
+  - scratch
+  - ubuntu-restricted-addons
+  - ubuntu-restricted-extras
+  kernel:
+    package: linux-generic-hwe-22.04
+  ssh:
+    allow-pw: true
+    authorized-keys: []
+    install-server: false
+  storage:
+    layout:
+      name: direct
+  updates: all
+  timezone: America/New_York
+  late-commands:
+  - 'sed -i.bak -e "s|#WaylandEnable=false$|DefaultSession=ubuntu-xorg.desktop|g" /target/etc/gdm3/custom.conf'
+  - curtin in-target --target=/target -- sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT=""/GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"/' /etc/default/grub
+  - 'echo "%sudo ALL=(ALL) NOPASSWD:ALL" > /target/etc/sudoers.d/nopw'
+  - chmod 440 /target/etc/sudoers.d/nopw
+  - curtin in-target --target=/target -- apt remove byobu thunderbird -y
+  - 'rm -f /target/etc/netplan/*.yaml'
+  - 'echo "# Let NetworkManager manage all devices on this system" > /target/etc/netplan/01-network-manager-all.yaml'
+  - 'echo "network:" >> /target/etc/netplan/01-network-manager-all.yaml'
+  - 'echo "  version: 2" >> /target/etc/netplan/01-network-manager-all.yaml'
+  - 'echo "  renderer: NetworkManager" >> /target/etc/netplan/01-network-manager-all.yaml'
+  - curtin in-target --target=/target -- wget -O /tmp/google-chrome-stable_current_amd64.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+  - curtin in-target --target=/target -- wget -O /tmp/anydesk.deb https://download.anydesk.com/linux/anydesk_6.2.1-1_amd64.deb
+  - curtin in-target --target=/target -- wget -O /home/snaps.sh http://boot.linuxgroove.com/kramden/22.04/scripts/snaps.sh
+  - curtin in-target --target=/target -- wget -O /etc/rc.local http://boot.linuxgroove.com/kramden/22.04/scripts/rc.local
+  - curtin in-target --target=/target -- wget -O /home/snaps.tar http://boot.linuxgroove.com/kramden/snaps.tar
+  - chmod +x /target/home/snaps.sh
+  - chmod +x /target/etc/rc.local
+  - curtin in-target --target=/target -- apt install /tmp/google-chrome-stable_current_amd64.deb -y
+  - curtin in-target --target=/target -- apt install /tmp/anydesk.deb -y
+  - 'mkdir -p /target/home/ubuntu/.local/share/applications'
+  - 'cp /target/usr/share/applications/provider-setup.desktop /target/home/ubuntu/.local/share/applications/provider-setup.desktop'
+  - 'sed -i.bak -e "s|NoDisplay=true$||g" /target/home/ubuntu/.local/share/applications/provider-setup.desktop'
+  - 'mkdir -p /target/home/ubuntu/.config/autostart'
+  - 'touch /target/home/ubuntu/.config/gnome-initial-setup-done'
+  - 'cp /target/usr/share/applications/provider-setup.desktop /target/home/ubuntu/.config/autostart/'
+  - 'echo "X-GNOME-Autostart-enabled=true" >> /target/home/ubuntu/.config/autostart/provider-setup.desktop'
+  - curtin in-target --target=/target -- chown -R 1000:1000 /home/ubuntu
+  - curtin in-target --target=/target -- update-grub
+  version: 1

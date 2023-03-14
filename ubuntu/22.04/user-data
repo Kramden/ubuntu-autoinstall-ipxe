@@ -36,6 +36,8 @@ autoinstall:
   storage:
     layout:
       name: direct
+  updates: all
+  timezone: America/New_York
   late-commands:
   - curtin in-target --target=/target -- sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT=""/GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"/' /etc/default/grub
   - 'rm -f /target/etc/netplan/*.yaml'
