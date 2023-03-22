@@ -18,6 +18,8 @@ autoinstall:
     sources:
       kramden-team:
         source: ppa:kramden-team/kramden
+      landscape:
+        source: ppa:landscape/self-hosted-beta
   packages:
   - ubuntu-desktop^
   - systemd-hwe-hwdb
@@ -27,6 +29,7 @@ autoinstall:
   - scratch
   - ubuntu-restricted-addons
   - ubuntu-restricted-extras
+  - landscape-client
   kernel:
     package: linux-generic-hwe-22.04
   ssh:
