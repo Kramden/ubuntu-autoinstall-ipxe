@@ -12,7 +12,7 @@ autoinstall:
   locale: en_US.UTF-8
   refresh-installer:
     update: true
-  proxy: "http://192.168.122.1:8000/"
+  proxy: "http://192.168.5.92:8000/"
   apt:
     preserve_sources_list: true
     sources:
