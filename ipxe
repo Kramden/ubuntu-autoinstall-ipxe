@@ -3,8 +3,7 @@
 menu
 item --gap -- ----------------Compudopt iPXE boot menu ----------------
 item kramden   Ubuntu 22.04 (Kramden) Installation
-item jammy     Ubuntu 22.04 (Vanilla) Installation
-item lunar     Ubuntu 23.04 Installation
+item windows   Windows Installation
 item shell      ipxe shell
 choose --default return --timeout 20000 target && goto ${target}
 
@@ -23,34 +22,12 @@ echo Booting Ubuntu 22.04 installer...
 boot
 goto MENU
 
-:jammy
+:windows
 
-set base-url http://192.168.5.92/ubuntu/22.04/iso
-kernel ${base-url}/casper/vmlinuz
-initrd ${base-url}/casper/initrd
-imgargs vmlinuz initrd=initrd \
- ip=dhcp \
- url=${base-url}/ubuntu-22.04.2-live-server-amd64.iso \
- cloud-config-url=/dev/null \
- autoinstall \
- ds=nocloud-net;s=http://192.168.5.92/ubuntu/22.04/ \
-echo Booting Ubuntu 22.04 installer...
-boot
-goto MENU
-
-:lunar
-
-set base-url http://192.168.5.92/ubuntu/23.04/iso
-kernel ${base-url}/casper/vmlinuz
-initrd ${base-url}/casper/initrd
-imgargs vmlinuz initrd=initrd \
- ip=dhcp \
- iso-url=http://192.168.5.92/ubuntu/23.04/lunar-desktop-amd64.iso \
- fsck.mode=skip \
- layerfs-path=minimal.standard.live.squashfs \
- autoinstall \
- 'ds=nocloud-net;s=http://192.168.5.92/ubuntu/23.04/' \
-echo Booting Ubuntu 23.04 installer...
+kernel http://192.168.5.92/windows/wimboot
+initrd http://192.168.5.92/windows/BCD
+initrd http://192.168.5.92/windows/boot.sdi
+initrd http://192.168.5.92/windows/boot.wim
 boot
 goto MENU
 
