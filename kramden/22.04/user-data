@@ -52,15 +52,15 @@ autoinstall:
   - 'echo "network:" >> /target/etc/netplan/01-network-manager-all.yaml'
   - 'echo "  version: 2" >> /target/etc/netplan/01-network-manager-all.yaml'
   - 'echo "  renderer: NetworkManager" >> /target/etc/netplan/01-network-manager-all.yaml'
-  - curtin in-target --target=/target -- wget -O /tmp/google-chrome-stable_current_amd64.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-  - curtin in-target --target=/target -- wget -O /tmp/anydesk.deb https://download.anydesk.com/linux/anydesk_6.2.1-1_amd64.deb
+  - curtin in-target --target=/target -- wget -O /tmp/google-chrome-stable_current_amd64.deb http://192.168.1.254/kramden/22.04/debs/google-chrome-stable_current_amd64.deb
+  - curtin in-target --target=/target -- wget -O /tmp/anydesk_amd64.deb http://192.168.1.254/kramden/22.04/debs/anydesk_amd64.deb
   - curtin in-target --target=/target -- wget -O /home/snaps.sh http://192.168.1.254/kramden/22.04/scripts/snaps.sh
   - curtin in-target --target=/target -- wget -O /etc/rc.local http://192.168.1.254/kramden/22.04/scripts/rc.local
   - curtin in-target --target=/target -- wget -O /home/snaps.tar http://192.168.1.254/kramden/22.04/snaps.tar
   - chmod +x /target/home/snaps.sh
   - chmod +x /target/etc/rc.local
   - curtin in-target --target=/target -- apt install /tmp/google-chrome-stable_current_amd64.deb -y
-  - curtin in-target --target=/target -- apt install /tmp/anydesk.deb -y
+  - curtin in-target --target=/target -- apt install /tmp/anydesk_amd64.deb -y
   - 'mkdir -p /target/home/ubuntu/.local/share/applications'
   - 'cp /target/usr/share/applications/provider-setup.desktop /target/home/ubuntu/.local/share/applications/provider-setup.desktop'
   - 'sed -i.bak -e "s|NoDisplay=true$||g" /target/home/ubuntu/.local/share/applications/provider-setup.desktop'
