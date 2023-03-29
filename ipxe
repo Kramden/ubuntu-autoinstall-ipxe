@@ -4,7 +4,11 @@ menu
 item --gap -- ---------------- Kramden iPXE deployment ----------------
 item kramden   Ubuntu 22.04 (Kramden) Installation
 item windows   Windows Installation
-item pmagic    Parted Magic - Requires 8GB RAM
+item --gap -- ---------------- Disk Wiping Software ---------------------------
+item pmagic	Parted Magic - Requires 8GB RAM
+item --gap -- ---------------- Utilities --------------------------------------
+item memtest	Memtest86+
+item --gap -- ---------------- iPXE Shell -------------------------------------
 item shell      ipxe shell
 choose --default return --timeout 20000 target && goto ${target}
 
@@ -40,6 +44,11 @@ initrd http://192.168.1.254/windows/boot.sdi
 initrd http://192.168.1.254/windows/boot.wim
 boot
 goto MENU
+
+:memtest
+
+kernel http://192.168.1.254/memtest/memtest86+x64.efi
+boot
 
 :shell
 shell ||
