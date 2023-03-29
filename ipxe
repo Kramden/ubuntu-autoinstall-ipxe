@@ -1,7 +1,7 @@
 #!ipxe
 :MENU
 menu
-item --gap -- ----------------Compudopt iPXE boot menu ----------------
+item --gap -- ---------------- Kramden iPXE deployment ----------------
 item kramden   Ubuntu 22.04 (Kramden) Installation
 item windows   Windows Installation
 item pmagic    Parted Magic - Requires 8GB RAM
