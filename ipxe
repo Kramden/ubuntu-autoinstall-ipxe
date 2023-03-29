@@ -4,6 +4,7 @@ menu
 item --gap -- ----------------Compudopt iPXE boot menu ----------------
 item kramden   Ubuntu 22.04 (Kramden) Installation
 item windows   Windows Installation
+item pmagic    Parted Magic - Requires 8GB RAM
 item shell      ipxe shell
 choose --default return --timeout 20000 target && goto ${target}
 
@@ -19,6 +20,15 @@ imgargs vmlinuz initrd=initrd \
  autoinstall \
  ds=nocloud-net;s=http://192.168.1.254/kramden/22.04/ \
 echo Booting Ubuntu 22.04 installer...
+boot
+goto MENU
+
+:pmagic
+
+kernel http://192.168.1.254/pmagic/bzImage ip=dhcp edd=on vga=normal netsrc=wget neturl="http://192.168.1.254/pmagic/pmodules" initrd=initrd.img initrd=fu.img initrd=m.img
+initrd http://192.168.1.254/pmagic/initrd.img
+initrd http://192.168.1.254/pmagic/fu.img
+initrd http://192.168.1.254/pmagic/m.img
 boot
 goto MENU
 
