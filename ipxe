@@ -9,7 +9,7 @@ choose --default return --timeout 20000 target && goto ${target}
 
 :kramden
 
-set base-url http://192.168.5.92/ubuntu/22.04
+set base-url http://192.168.1.254/ubuntu/22.04
 kernel ${base-url}/iso/casper/vmlinuz
 initrd ${base-url}/iso/casper/initrd
 imgargs vmlinuz initrd=initrd \
@@ -17,17 +17,17 @@ imgargs vmlinuz initrd=initrd \
  url=${base-url}/ubuntu-22.04.2-live-server-amd64.iso \
  cloud-config-url=/dev/null \
  autoinstall \
- ds=nocloud-net;s=http://192.168.5.92/kramden/22.04/ \
+ ds=nocloud-net;s=http://192.168.1.254/kramden/22.04/ \
 echo Booting Ubuntu 22.04 installer...
 boot
 goto MENU
 
 :windows
 
-kernel http://192.168.5.92/windows/wimboot
-initrd http://192.168.5.92/windows/BCD
-initrd http://192.168.5.92/windows/boot.sdi
-initrd http://192.168.5.92/windows/boot.wim
+kernel http://192.168.1.254/windows/wimboot
+initrd http://192.168.1.254/windows/BCD
+initrd http://192.168.1.254/windows/boot.sdi
+initrd http://192.168.1.254/windows/boot.wim
 boot
 goto MENU
 
