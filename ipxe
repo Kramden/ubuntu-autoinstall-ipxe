@@ -4,6 +4,7 @@ menu
 item --gap -- ---------------- Kramden iPXE deployment ----------------
 item kramden   Ubuntu 22.04 (Kramden) Installation
 item windows   Windows Installation
+item lunar   Ubuntu 23.04 Installation
 item --gap -- ---------------- Disk Wiping Software ---------------------------
 item pmagic	Parted Magic - Requires 8GB RAM
 item --gap -- ---------------- Utilities --------------------------------------
@@ -11,6 +12,23 @@ item memtest	Memtest86+
 item --gap -- ---------------- iPXE Shell -------------------------------------
 item shell      ipxe shell
 choose --default return --timeout 20000 target && goto ${target}
+
+:lunar
+
+set base-url http://192.168.1.254/ubuntu/23.04/iso
+kernel ${base-url}/casper/vmlinuz
+initrd ${base-url}/casper/initrd
+imgargs vmlinuz initrd=initrd \
+ quiet splash \
+ ip=dhcp \
+ iso-url=http://192.168.1.254/ubuntu/23.04/lunar-desktop-amd64.iso \
+ fsck.mode=skip \
+ layerfs-path=minimal.standard.live.squashfs \
+ autoinstall \
+ ds=nocloud-net;s=http://192.168.1.254/ubuntu/23.04/ \
+echo Booting Ubuntu 23.04 installer...
+boot
+goto MENU
 
 :kramden
 
