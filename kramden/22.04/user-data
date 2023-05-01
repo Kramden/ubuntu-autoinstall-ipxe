@@ -42,7 +42,7 @@ autoinstall:
   updates: all
   timezone: America/New_York
   late-commands:
-  - 'sed -i.bak -e "s|#WaylandEnable=false$|DefaultSession=ubuntu-xorg.desktop|g" /target/etc/gdm3/custom.conf'
+  - 'sed -i.bak -e "s|#WaylandEnable=false$|WaylandEnable=false\nDefaultSession=ubuntu-xorg.desktop|g" /target/etc/gdm3/custom.conf'
   - curtin in-target --target=/target -- sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT=""/GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"/' /etc/default/grub
   - 'echo "%sudo ALL=(ALL) NOPASSWD:ALL" > /target/etc/sudoers.d/nopw'
   - chmod 440 /target/etc/sudoers.d/nopw
