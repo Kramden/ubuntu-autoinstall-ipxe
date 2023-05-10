@@ -11,7 +11,7 @@ item --gap -- ---------------- Utilities --------------------------------------
 item memtest	Memtest86+
 item --gap -- ---------------- iPXE Shell -------------------------------------
 item shell      ipxe shell
-choose --default return --timeout 20000 target && goto ${target}
+choose --default return target && goto ${target}
 
 :lunar
 
