@@ -2,9 +2,9 @@
 :MENU
 menu
 item --gap -- ---------------- Kramden iPXE deployment ----------------
-item kramden   Ubuntu 22.04 (Kramden) Installation
+item kramden   Ubuntu 22.04 (Kramden) Installation - Requires 8GB RAM
 item windows   Windows Installation
-item lunar   Ubuntu 23.04 Installation
+item lunar   Ubuntu 23.04 Installation - Requires 12GB RAM
 item --gap -- ---------------- Disk Wiping Software ---------------------------
 item pmagic	Parted Magic - Requires 8GB RAM
 item --gap -- ---------------- Utilities --------------------------------------
