@@ -23,7 +23,7 @@ for i in aqueducts mc-installer; do
 done
 
 #Download kramden added apps list in progress
-for i in 0ad audacity blender darktable dragonsapprentice fablemaker frogsquash gcompris gnome-chess gnome-dictionary gnome-nibbles gnome-weather iagno inkscape kalzium kdenlive kgeography kolibri kolourpaint krita ktouch lazpaint leocad mapton marsshooter memory-tiles micropolis midnightmareteddy missilemath open-typer paintsupreme-3d pinta pixelorama quadrapassel spotify steam stellarium-daily supertux supertuxkart sweethome3d-homedesign tank-warriors thepassage tux-paint tuxtyping white-house; do
+for i in 0ad audacity blender darktable dragonsapprentice fablemaker frogsquash gcompris gnome-chess gnome-dictionary gnome-nibbles gnome-weather iagno inkscape kalzium kdenlive kgeography kolourpaint krita ktouch lazpaint leocad mapton marsshooter memory-tiles micropolis midnightmareteddy missilemath open-typer paintsupreme-3d pinta pixelorama quadrapassel spotify steam stellarium-daily supertux supertuxkart sweethome3d-homedesign tank-warriors thepassage tux-paint tuxtyping white-house; do
         snap download --channel=stable $i
 done
 
