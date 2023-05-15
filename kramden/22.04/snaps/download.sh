@@ -12,6 +12,9 @@ done
 
 snap download --channel=preview/edge snap-store
 
+# Download content snap needed by steam
+snap download gaming-graphics-core22
+
 #Download kramden specific snaps
 for i in zoom-client vlc core18; do
         snap download --channel=stable $i
