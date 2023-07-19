@@ -6,14 +6,12 @@ echo $old
 cd `dirname $0`
 
 #Download Ubuntu seeded snaps
-for i in gnome-42-2204 gnome-3-38-2004 firefox snapd-desktop-integration core22 gtk-common-themes; do
+for i in gnome-42-2204 gnome-3-38-2004 snapd-desktop-integration core22 gtk-common-themes; do
         snap download --channel=stable $i
 done
 
 snap download --channel=preview/edge snap-store
-
-# Download content snap needed by steam
-snap download gaming-graphics-core22
+snap download --channel=stable/ubuntu-23.04 firefox
 
 #Download kramden specific snaps
 for i in zoom-client vlc core18; do
@@ -21,12 +19,12 @@ for i in zoom-client vlc core18; do
 done
 
 #Download kramden specific games
-for i in aqueducts mc-installer; do
+for i in gnome-2048 quadrapassel gnome-chess gnome-nibbles frogsquash mc-installer iagno; do
         snap download --channel=stable $i
 done
 
 #Download kramden added apps list in progress
-for i in 0ad audacity blender darktable dragonsapprentice fablemaker frogsquash gcompris gnome-chess gnome-dictionary gnome-nibbles gnome-weather iagno inkscape kalzium kdenlive kgeography kolourpaint krita ktouch lazpaint leocad mapton marsshooter memory-tiles micropolis midnightmareteddy missilemath open-typer paintsupreme-3d pinta pixelorama quadrapassel spotify steam stellarium-daily supertux supertuxkart sweethome3d-homedesign tank-warriors thepassage tux-paint tuxtyping white-house; do
+for i in spotify gnome-weather gnome-dictionary; do
         snap download --channel=stable $i
 done
 

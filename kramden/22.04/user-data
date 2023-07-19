@@ -30,11 +30,16 @@ autoinstall:
   - systemd-hwe-hwdb
   - python3-magic
   - kramden-overrides
-  - gimp
-  - scratch
   - ubuntu-restricted-addons
   - ubuntu-restricted-extras
   - landscape-client
+  - audacity
+  - gcompris-qt
+  - gimp
+  - inkscape
+  - krita
+  - openshot-qt
+  - scratch
   kernel:
     package: linux-generic-hwe-22.04
   ssh:
