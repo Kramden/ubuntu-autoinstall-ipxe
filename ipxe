@@ -33,6 +33,7 @@ goto MENU
 :kramden
 
 set base-url http://192.168.1.254/ubuntu/22.04
+imgfetch http://192.168.1.254:5000/log_ubuntu_boot
 kernel ${base-url}/iso/casper/vmlinuz
 initrd ${base-url}/iso/casper/initrd
 imgargs vmlinuz initrd=initrd \
@@ -47,6 +48,7 @@ goto MENU
 
 :pmagic
 
+imgfetch http://192.168.1.254:5000/log_pmagic_boot
 kernel http://192.168.1.254/pmagic/bzImage ip=dhcp edd=on vga=normal netsrc=wget neturl="http://192.168.1.254/pmagic/pmodules" initrd=initrd.img initrd=fu.img initrd=m.img
 initrd http://192.168.1.254/pmagic/initrd.img
 initrd http://192.168.1.254/pmagic/fu.img
@@ -56,6 +58,7 @@ goto MENU
 
 :windows
 
+imgfetch http://192.168.1.254:5000/log_windows_boot
 kernel http://192.168.1.254/windows/wimboot
 initrd http://192.168.1.254/windows/BCD
 initrd http://192.168.1.254/windows/boot.sdi
@@ -65,6 +68,7 @@ goto MENU
 
 :memtest
 
+imgfetch http://192.168.1.254:5000/log_memtest_boot
 kernel http://192.168.1.254/memtest/memtest86+x64.efi
 boot
 
