@@ -11,6 +11,8 @@ item --gap -- ---------------- Utilities --------------------------------------
 item memtest	Memtest86+
 item --gap -- ---------------- iPXE Shell -------------------------------------
 item shell      ipxe shell
+item --gap -- -----------------------------------------------------------------
+item --key x exit         Exit iPXE and continue BIOS boot
 choose --default return target && goto ${target}
 
 :lunar
