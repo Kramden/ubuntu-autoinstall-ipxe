@@ -2,7 +2,7 @@
 
 old=$PWD
 echo $old
-dir=$(dirname $(realpath snaps/download.sh))
+dir=$(dirname $(realpath $0))
 
 cd $dir
 

@@ -26,10 +26,12 @@ autoinstall:
       landscape:
         source: ppa:landscape/self-hosted-beta
   packages:
-  - ubuntu-desktop^
+  - ubuntu-desktop
   - systemd-hwe-hwdb
   - python3-magic
   - kramden-overrides
+  - gimp
+  - scratch
   - ubuntu-restricted-addons
   - ubuntu-restricted-extras
   - landscape-client
