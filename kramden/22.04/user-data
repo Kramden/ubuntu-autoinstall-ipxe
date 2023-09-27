@@ -82,4 +82,5 @@ autoinstall:
   - 'echo "X-GNOME-Autostart-enabled=true" >> /target/home/ubuntu/.config/autostart/provider-setup.desktop'
   - curtin in-target --target=/target -- chown -R 1000:1000 /home/ubuntu
   - curtin in-target --target=/target -- update-grub
+  - 'touch /target/etc/cloud/cloud-init.disabled'
   version: 1
