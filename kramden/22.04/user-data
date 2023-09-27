@@ -58,7 +58,7 @@ autoinstall:
   - curtin in-target --target=/target -- sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT=""/GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"/' /etc/default/grub
   - 'echo "%sudo ALL=(ALL) NOPASSWD:ALL" > /target/etc/sudoers.d/nopw'
   - chmod 440 /target/etc/sudoers.d/nopw
-  - curtin in-target --target=/target -- apt remove byobu thunderbird needrestart -y
+  - curtin in-target --target=/target -- apt remove byobu thunderbird needrestart open-iscsi -y
   - 'rm -f /target/etc/netplan/*.yaml'
   - 'echo "# Let NetworkManager manage all devices on this system" > /target/etc/netplan/01-network-manager-all.yaml'
   - 'echo "network:" >> /target/etc/netplan/01-network-manager-all.yaml'
