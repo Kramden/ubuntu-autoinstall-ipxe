@@ -1,0 +1,15 @@
+#cloud-config
+autoinstall:
+  # version is an Autoinstall required field.
+  version: 1
+  # Do not create a default user
+  user-data:
+    users: ['']
+  codecs:
+    install: true
+  drivers:
+    install: true
+  source:
+    id: ubuntu-desktop
+    search_drivers: true
+  proxy: "http://192.168.1.254:8000/"

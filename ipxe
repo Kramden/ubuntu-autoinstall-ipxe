@@ -5,6 +5,7 @@ item --gap -- ---------------- Kramden iPXE deployment ----------------
 item kramden   Ubuntu 22.04 (Kramden) Installation - Requires 8GB RAM
 item windows   Windows Installation
 item lunar   Ubuntu 23.04 Installation - Requires 12GB RAM
+item mantic   Ubuntu 23.10 Installation - Requires 12GB RAM
 item --gap -- ---------------- Disk Wiping Software ---------------------------
 item pmagic	Parted Magic - Requires 8GB RAM
 item --gap -- ---------------- Utilities --------------------------------------
@@ -29,6 +30,23 @@ imgargs vmlinuz initrd=initrd \
  autoinstall \
  ds=nocloud-net;s=http://192.168.1.254/ubuntu/23.04/ \
 echo Booting Ubuntu 23.04 installer...
+boot
+goto MENU
+
+:mantic
+
+set base-url http://192.168.1.254/ubuntu/23.10/iso
+kernel ${base-url}/casper/vmlinuz
+initrd ${base-url}/casper/initrd
+imgargs vmlinuz initrd=initrd \
+ quiet splash \
+ ip=dhcp \
+ iso-url=http://192.168.1.254/ubuntu/23.10/mantic-desktop-amd64.iso \
+ fsck.mode=skip \
+ layerfs-path=minimal.standard.live.squashfs \
+ autoinstall \
+ ds=nocloud-net;s=http://192.168.1.254/ubuntu/23.10/ \
+echo Booting Ubuntu 23.10 installer...
 boot
 goto MENU
 
