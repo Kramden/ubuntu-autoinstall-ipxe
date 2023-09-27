@@ -11,3 +11,5 @@ for i in /home/snaps/first/core*.snap; do snap install $i;done
 for i in /home/snaps/first/gtk*.snap; do snap install $i;done
 for i in /home/snaps/first/gnome-*.snap; do snap install $i;done
 for i in /home/snaps/second/*.snap; do snap install $i;done
+
+snap remove --purge lxd
