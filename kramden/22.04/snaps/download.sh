@@ -25,8 +25,8 @@ mkdir $dir/second && cd $dir/second
 echo `pwd`
 
 snap download --channel=stable/ubuntu-22.04 snapd-desktop-integration
-snap download --channel=preview/edge snap-store
-snap download --channel=stable/ubuntu-23.04 firefox
+snap download --channel=stable/ubuntu-23.10 snap-store
+snap download --channel=stable/ubuntu-23.10 firefox
 
 #Download kramden specific snaps
 #for i in zoom-client vlc; do
