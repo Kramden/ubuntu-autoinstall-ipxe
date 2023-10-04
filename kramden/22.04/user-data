@@ -1,7 +1,7 @@
 #cloud-config
 autoinstall:
   identity:
-    hostname: jammy-desktop
+    hostname: kramden-desktop
     password: $6$5lpwCLsKLEzMkSJc$keOAhA6aO/5RocGThmhVA7LSNuW911Rx5HHXFEa75oGK20cEdAAgn14H5f5nGeq6QgcSyLPrWcg1.JvjXbhrN/
     realname: Ubuntu user
     username: ubuntu
