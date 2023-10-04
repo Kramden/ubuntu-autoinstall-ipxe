@@ -11,7 +11,7 @@ autoinstall:
     variant: ''
   locale: en_US.UTF-8
   refresh-installer:
-    update: true
+    update: false
   proxy: "http://192.168.1.254:8000/"
   apt:
     preserve_sources_list: false
@@ -51,7 +51,7 @@ autoinstall:
   storage:
     layout:
       name: direct
-  updates: all
+  updates: security
   timezone: America/New_York
   late-commands:
   - 'sed -i.bak -e "s|#WaylandEnable=false$|WaylandEnable=false\nDefaultSession=ubuntu-xorg.desktop|g" /target/etc/gdm3/custom.conf'
