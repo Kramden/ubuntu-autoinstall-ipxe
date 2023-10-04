@@ -41,7 +41,6 @@ autoinstall:
   - inkscape
   - krita
   - openshot-qt
-  - scratch
   kernel:
     package: linux-generic-hwe-22.04
   ssh:
