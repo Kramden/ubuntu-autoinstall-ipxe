@@ -26,7 +26,7 @@ echo `pwd`
 
 snap download --channel=stable/ubuntu-22.04 snapd-desktop-integration
 snap download --channel=stable/ubuntu-23.10 snap-store
-snap download --channel=stable/ubuntu-23.10 firefox
+snap download --channel=stable/ubuntu-22.04 firefox
 
 #Download kramden specific snaps
 #for i in zoom-client vlc; do
